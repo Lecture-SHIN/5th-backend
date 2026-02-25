@@ -3,11 +3,11 @@ package com.spring.di.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("diService")
-public class DIService {
+@Component("specialDIService")
+public class SpecialDIService extends DIService {
 	
-	public DIService() {
-		System.out.println("DIService 생성자");
+	public SpecialDIService() {
+		System.out.println("SpecialDIService 생성자");
 	}
 	
 //	@Autowired
