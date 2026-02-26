@@ -60,7 +60,7 @@ public class ViewController {
     }
 	
     @GetMapping(value = "/view-flow")
-    public String viewFlow() {
+    public String viewFlow(Model model) {
     	
     	//
         Student thyme = Student.builder()
@@ -80,6 +80,13 @@ public class ViewController {
 								.sname("view")
 								.grade(Grade.SENIOR)
 								.build();
+		
+		List<Student> students = List.of(thyme, leaf, view);
+		model.addAttribute("students", students);
+		
+		model.addAttribute("score", 100);
+		
+		model.addAttribute("view", view);
         
         return "view-flow";
     }
