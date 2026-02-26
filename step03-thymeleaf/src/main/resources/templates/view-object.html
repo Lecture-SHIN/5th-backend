@@ -7,14 +7,20 @@
 <body>
 	<h1>Thymeleaf View Object</h1>
 
-	<ul>
+	<ul> Object
 		<li>[[${thyme.sname}]]</li>
 		<li>[[${thyme['sname']}]]</li>
 		<li>[[${thyme.getSname()}]]</li>
-	
-	
+		<li th:text="${thyme.sname}"></li>
 	</ul>
 	
+	<ul> List
+		<li th:text="${students[1].sid}"></li>
+	</ul>
+	
+	<ul> Map
+		<li th:text="${studentMap.thyme.sname}"></li>
+	</ul>
 	
 </body>
 </html>
