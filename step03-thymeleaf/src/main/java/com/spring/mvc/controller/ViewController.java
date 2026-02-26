@@ -92,13 +92,15 @@ public class ViewController {
     }
     
     @GetMapping(value = "/view-apply")
-    public String viewApply() {
+    public String viewApply(Model model) {
     	
         Student thyme = Student.builder()
 								.sid(20246001)
 								.sname("thyme")
 								.grade(Grade.JUNIOR)
 								.build();
+        
+        model.addAttribute("thyme", thyme);
         
         return "view-apply";
     }
