@@ -32,17 +32,18 @@ public class MappingTest {
 		
 		// 해결 @JoinColumn + @ManyToOne -> create
 		// FK 반영 내용을 확인 후 -> none
+//		Lecture lec = new Lecture();
+//		lec.setLname("Tech");
+//		em.persist(lec);
+//		
+//		Student stu = new Student();
+//		stu.setLecture(lec);;
+//		stu.setSid(20242001);
+//		stu.setSname("jpa");
+//		em.persist(stu);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		Lecture foundLecture = em.find(Student.class, 20242001).getLecture();
+		System.out.println(foundLecture);
 		
 		
 		
