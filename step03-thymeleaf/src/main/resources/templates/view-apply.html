@@ -27,7 +27,10 @@
 	<form th:action="@{/form}" method="GET">
 		<div>
 			<label for="sid">학생번호 : </label>
-			<input id="sid" type="text">
+			<input id="sid" name="sid" type="text">
+			
+			<label for="sname">학생이름 : </label>
+			<input id="sname" name="sname" type="text">
 		</div>
 		<button type="submit">전송</button>
 	</form>
