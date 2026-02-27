@@ -18,6 +18,24 @@
 	<!-- http://localhost:8080/students/20246001 -->
 	<a th:href="@{/students/{sid}(sid=${thyme.sid})}">경로파라미터</a>
 	
+	<button th:onclick="'location.href=\'' + @{/view-basic} + '\''">view-basic 이동</button>
+	<button th:onclick="|location.href='@{/view-basic}'|">view-basic 이동</button>
+	<button id="view-basic-btn">view-basic 이동</button>
+	
+	<script th:inline="javascript">
+		let sid = /*[[${thyme.sid}]]*/'20246001';
+		console.log(sid);
+		
+		const viewBasicBtn = document.getElementById('view-basic-btn');
+		viewBasicBtn.addEventListener('click', () => {
+			location.href = /*[[@{/view-basic}]]*/'/view-basic';
+		});
+	</script>
+	
+	
+	
+	
+	
 	
 </body>
 </html>
