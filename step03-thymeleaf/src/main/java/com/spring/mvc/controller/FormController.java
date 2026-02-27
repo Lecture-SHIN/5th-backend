@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.spring.mvc.dto.Contact;
 import com.spring.mvc.dto.Student;
 import com.spring.mvc.dto.Student.Grade;
 
@@ -17,7 +18,12 @@ public class FormController {
 	}
 	
 	@PostMapping(value = "/input-data")
-	public String processInputData() {
+	public String processInputData(Contact contact,
+									Model model) {
+		
+		System.out.println(contact);
+		model.addAttribute("contact", contact);
+		
 		return "output";
 	}
 	
