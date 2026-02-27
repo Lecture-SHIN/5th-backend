@@ -4,6 +4,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.spring.mvc.dto.Student;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
 @Controller
 public class MVCController {
@@ -80,9 +82,14 @@ public class MVCController {
 	// 1) @RequestBody 생략 불가능
 	// 2) JSON -> java 객체 매핑 (스프링부트 내부의 jackson 라이브러리)
 	@PostMapping(value = "/test6")
-	public void test6(@RequestBody Student student) {
+	public String test6(@Valid @RequestBody Student student,
+						BindingResult bindingResult) {
 		System.out.println("MVCController : test6()");
 		System.out.println(student);
+		if(bindingResult.hasErrors()) {
+			return "student/form";
+		}
+		return "redirect:/students";
 	}
 	
 	// http://localhost:8080/test5?sname=web-mvc&grade=junior
